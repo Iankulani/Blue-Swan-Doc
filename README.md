@@ -7,3 +7,4 @@ Blue Swan Documentation
 git clone https://github.com/Iankulani/Blue-Swan-Doc.git
 cd Blue-Swan-Doc
 ```
+# Star History 
