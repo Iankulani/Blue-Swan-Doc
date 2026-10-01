@@ -1,5 +1,7 @@
 # Blue-Swan-Doc
 
+<div align="center">
+
 [![GitHub stars](https://img.shields.io/github/stars/Iankulani/Blue-Swan-Doc?style=for-the-badge&logo=github)](https://github.com/Iankulani/Blue-Swan-Doc/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Iankulani/Blue-Swan-Doc?style=for-the-badge&logo=github)](https://github.com/Iankulani/Blue-Swan-Doc/network)
 [![GitHub watchers](https://img.shields.io/github/watchers/Iankulani/Blue-Swan-Doc?style=for-the-badge&logo=github)](https://github.com/Iankulani/Blue-Swan-Doc/watchers)
@@ -10,6 +12,8 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Documentation-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Iankulani/Blue-Swan-Doc)
 [![HTML5](https://img.shields.io/badge/HTML5-Documentation-orange?style=for-the-badge&logo=html5&logoColor=white)](https://github.com/Iankulani/Blue-Swan-Doc)
 [![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Documentation-purple?style=for-the-badge&logo=hackthebox&logoColor=white)](https://github.com/Iankulani/Blue-Swan-Doc)
+
+</div>
 
 Blue Swan Documentation
 
